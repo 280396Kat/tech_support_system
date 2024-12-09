@@ -1,0 +1,5 @@
+databaseChangeLog:
+  - include:
+      file: 0001_ddl_create_user_table.xml
+  - include:
+      file: 0002_ddl_create_water_feedback_table.xml

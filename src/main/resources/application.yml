@@ -1,0 +1,27 @@
+spring:
+  r2dbc:
+    url: ${DATASOURCE_URL:r2dbc:postgresql://localhost:5432/??????}
+    username: ${DATASOURCE_USERNAME:local}
+    password: ${DATASOURCE_PASSWORD:local}
+
+  jpa:
+    show-sql: false
+    generate-ddl: false
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  servlet:
+    multipart:
+      max-file-size: 450MB
+      max-request-size: 450MB
+      enabled: true
+
+  template:
+    filepath: ${FILE_PATH:/D:\\Java\\tech_support_system\\tmp}
+  
+
+  mail:
+    host: smtp.yandex.ru.
+    port: 465
+    protocol: smtps
+    username: cetrinkeit@yandex.ru
+    password: ibiflbjpsupwlbko

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="0002_ddl_create_water_feedback_table" author="Katya K.">
+        <createTable schemaName="public" tableName="water_feedback" remarks="Обратная связь по воде">
+            <column name="id" type="bigserial" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="water_feedback_pkey" nullable="false"/>
+            </column>
+            <column name="description" type="varchar" remarks="Описание"/>
+            <column name="ticket_number" type="numeric" remarks="Номер обращения"/>
+
+            <column name="user_id_fk" type="bigint">
+                <constraints foreignKeyName="user_id_fk"
+                             references="user(user_id_pk)"/>
+            </column>
+
+        </createTable>
+        <rollback>
+            <dropTable tableName="water_feedback"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
+
+
+

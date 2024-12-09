@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+
+    <changeSet id="0001_ddl_create_user_table" author="Katya K.">
+        <createTable schemaName="public" tableName="user" remarks="Пользователь">
+            <column name="id" type="bigserial" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="user_pkey" nullable="false"/>
+            </column>
+            <column name="user_name" type="varchar" remarks="Имя пользователя"/>
+            <column name="phone_number" type="varchar" remarks="Номер телефона"/>
+            <column name="email" type="varchar" remarks="Имейл"/>
+
+        </createTable>
+        <rollback>
+            <dropTable tableName="user"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
